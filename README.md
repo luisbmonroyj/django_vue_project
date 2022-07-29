@@ -1,5 +1,7 @@
 **Instalar requerimientos del proyecto.**
-*Inicialmente, ejecuta en tu maquina el comando python -m venv NOMBRE_DE_TU_ENTORNO y luego ejecuta el siguente comando*
+
+Inicialmente, ejecuta en tu maquina el comando python -m venv NOMBRE_DE_TU_ENTORNO y luego ejecuta el siguente comando
+
 [pip install -r requerimientos.txt]
 
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
