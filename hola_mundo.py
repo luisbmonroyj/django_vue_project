@@ -1,7 +1,6 @@
-print('Hola mundo')
+##Codigos para saber versión de python
 
-print('Luis escribio esta linea')
 
-print('hola mundo dos julian z')
+import sys
 
-print('Esto es un ensayo')
+print(sys.path)
