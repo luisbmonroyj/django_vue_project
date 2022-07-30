@@ -6,6 +6,17 @@ Inicialmente, ejecuta en tu maquina el comando python -m venv NOMBRE_DE_TU_ENTOR
 pip install -r requerimientos.txt
 ```
 
+**Formato de JSON para crear usuario**
+
+{"id_usuario": "lbmonroyj@gmail.com",
+"password":"123456789",
+"apellido": "Monroy",
+"nombre": "Luis",
+"telefono": "31031531925",
+"direccion": "Calle 4 # 85 - 13",
+"estado": true
+}
+
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
