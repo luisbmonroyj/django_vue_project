@@ -6,8 +6,10 @@ class Carrito(models.Model):
     id_carrito = models.BigAutoField('id_carrito', primary_key= True)
     cantidad = models.IntegerField('cantidad', default= 0)
     productos = models.ForeignKey(producto, on_delete=models.CASCADE)
-    costo = producto.precio
-    valor = costo * cantidad
+    #costo = producto.precio
+    #valor = costo * cantidad
     
+    def get(self, producto):
+        
     
     #username = models.CharField('usuario',max_length=30, unique=True ,default='loser')
