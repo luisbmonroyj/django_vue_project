@@ -8,6 +8,9 @@ Inicialmente, ejecuta en tu maquina el comando python -m venv ambiente_1 y luego
 pip install -r packages.txt
 ```
 
+luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
+
+
 **Formato de JSON para crear usuario**
 
 {"id_usuario": "lbmonroyj@gmail.com",
