@@ -15,14 +15,15 @@ class UserSerializer(serializers.ModelSerializer):
     
     def to_representation(self, object):
         user = User.objects.get(id_usuario=object.id_usuario)
-        return {'id_usuario': user.id_usuario,
+        return {'usuario': user.usuario,
                 'apellido': user.apellido,
                 'nombre': user.nombre,
+                'correo': user.correo,
                 'telefono': user.telefono,
                 'direccion': user.direccion,
-                'estado': user.estado
             }
-            #considero que estado no deberia mandarlo, dejarlo como tratamiento interno
+            #    'estado': user.estado
+            #    considero que estado no deberia mandarlo, dejarlo como tratamiento interno
 
             
     

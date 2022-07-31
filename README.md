@@ -1,10 +1,21 @@
 **Instalar requerimientos del proyecto.**
 
-Inicialmente, ejecuta en tu maquina el comando python -m venv NOMBRE_DE_TU_ENTORNO y luego ejecuta el siguente comando
+la idea es para no tener que ignorar varios ambientes virtuales de trabajo en el archivo .gitignore, se use el nombre ambiente_1 como ambiente virtual.
 
+Inicialmente, ejecuta en tu maquina el comando python -m venv ambiente_1
+
+para activar el ambiente_1 con un alias (amb), use esta instruccion en la terminal:
+    doskey amb="ambiente_1\Scripts\activate"
+
+ya solo se necesita escribir amb, para activar el ambiente
+
+ y luego ejecuta el siguente comando:    
 ```
-pip install -r requerimientos.txt
+    pip install -r packages.txt
 ```
+
+luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
+
 
 **Formato de JSON para crear usuario**
 
@@ -17,6 +28,10 @@ pip install -r requerimientos.txt
 "estado": true
 }
 
+para hacer un push a heroku desde una rama se escribe:
+    git push heroku <rama>:main
+
+    
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
