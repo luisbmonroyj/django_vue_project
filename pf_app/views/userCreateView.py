@@ -10,15 +10,16 @@ class UserCreateView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        userData = {'usuario':request.data['usuario'],
+        userData = {'username':request.data['username'],
                     'password':request.data['password'],
                     'apellido':request.data['apellido'],
                     'nombre':request.data['nombre'],
-                    'correo': request.data['correo'],
+                    'email': request.data['email'],
                     'telefono':request.data['telefono'],
                     'direccion':request.data['direccion'],
-                    'estado':request.data['estado']
+                    #'activo':request.data['activo']
                     }
+        #en este diccionario se mandan los datos que se van a agregar a la DB
                 
         token = TokenObtainPairSerializer(data = userData)
         token.is_valid(raise_exception=True)

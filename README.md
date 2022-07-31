@@ -19,13 +19,13 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
 **Formato de JSON para crear usuario**
 
-{"id_usuario": "lbmonroyj@gmail.com",
+{"username": "lbmonroyj",
 "password":"123456789",
 "apellido": "Monroy",
 "nombre": "Luis",
+"email": "lbmonroyj@gmail.com",
 "telefono": "31031531925",
-"direccion": "Calle 4 # 85 - 13",
-"estado": true
+"direccion": "Calle 4 # 85 - 13"
 }
 
 para hacer un push a heroku desde una rama se escribe:
