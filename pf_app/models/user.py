@@ -34,8 +34,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     estado = models.BooleanField('activo',default=True)
 
     def save(self, **kwargs):
-        some_salt = 'qwertyuiop'
-        self.password = make_password(self.password,some_salt)
+        #some_salt = 'qwertyuiop'
+        self.password = make_password(self.password)
         super().save(**kwargs)
 
     objects = UserManager()

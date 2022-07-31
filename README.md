@@ -28,6 +28,10 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 "estado": true
 }
 
+para hacer un push a heroku desde una rama se escribe:
+    git push heroku <rama>:main
+
+    
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.

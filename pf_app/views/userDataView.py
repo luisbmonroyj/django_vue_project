@@ -17,7 +17,7 @@ class UserDataView(generics.RetrieveAPIView):
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         validated_data = tokenBackend.decode(token,verify=False)
 
-        if validated_data['ID_Usuario'] != kwargs['pk']:
+        if validated_data['id_usuario'] != kwargs['pk']:
             stringResponse = {'detail':'No tiene acceso a esta informacion'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
         return super().get(request,*args,**kwargs)
