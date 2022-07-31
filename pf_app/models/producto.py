@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-from django.contrib.auth.hashers import make_password
 
 class Producto(models.Model):
     id_producto = models.BigAutoField('id_producto', primary_key= True)
