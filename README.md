@@ -29,6 +29,23 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 }
 
 
+{"username": "santiago.mlondono4",
+"password":"123456789",
+"apellido": "Martinez",
+"nombre": "Santiago",
+"email": "santiago.mlonodono4@gmail.com",
+"telefono": "3127492680",
+"direccion": "Calle 4 # 85 - 15"
+}
+
+**Formato de JSON para agregar al carrito**
+
+{
+"id_usuario": 1,
+"productos": 4,
+"cantidad": 8
+}
+
 **Formato de JSON para crear producto**
 
 {"nombre_producto": "papitas_fritas",

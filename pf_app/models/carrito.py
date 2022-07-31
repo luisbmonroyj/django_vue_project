@@ -1,16 +1,16 @@
-"""
 from django.db import models
-from models import producto
+from pf_app.models import producto
+from pf_app.models import user
 
 class Carrito(models.Model):
-    pedido = models.ForeignKey('id_pedido')
-    producto = producto.Producto()
-    id_carrito = models.BigAutoField('id_carrito', primary_key= True)
-    cantidad = models.IntegerField('cantidad', default= 0)
-    productos = models.ForeignKey(producto, on_delete=models.CASCADE)
+    #producto = producto.Producto()
+    #id_carrito = models.BigAutoField('id_carrito', primary_key= True)
+    id_usuario = models.ForeignKey(user.User, on_delete=models.CASCADE)
+    productos = models.ForeignKey(producto.Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField('cantidad', default= 1)
     #costo = producto.precio
     #valor = costo * cantidad
-    
+    """
     def __str__(self):
         diccionario = {
             'producto': self.producto,

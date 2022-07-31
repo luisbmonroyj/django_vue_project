@@ -24,5 +24,6 @@ urlpatterns = [
     path('user/<int:pk>/',views.UserDataView.as_view()),
     #buscar por que tipo de dato se reemplaza int
     path('refresh/',TokenRefreshView.as_view()),
-    path('crear_producto/', views.ProductoCreateView.as_view())
+    path('crear_producto/', views.ProductoCreateView.as_view()),
+    path('cart/', views.CarritoCreateView.as_view())
 ]
