@@ -10,10 +10,11 @@ class UserCreateView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        userData = {'id_usuario':request.data['id_usuario'],
+        userData = {'usuario':request.data['usuario'],
                     'password':request.data['password'],
                     'apellido':request.data['apellido'],
                     'nombre':request.data['nombre'],
+                    'correo': request.data['correo'],
                     'telefono':request.data['telefono'],
                     'direccion':request.data['direccion'],
                     'estado':request.data['estado']
