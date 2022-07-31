@@ -28,6 +28,15 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 "estado": true
 }
 
+
+**Formato de JSON para crear producto**
+
+{"nombre_producto": "papitas_fritas",
+"presentacion":"en caja",
+"precio": "85200.1"
+}
+
+
 para hacer un push a heroku desde una rama se escribe:
     git push heroku <rama>:main
 
