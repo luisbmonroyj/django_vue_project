@@ -15,7 +15,7 @@ ambiente_1/
 
 # Log files
 *.log
-packages.txt
+#packages.txt
 
 # Package files
 *.jar
