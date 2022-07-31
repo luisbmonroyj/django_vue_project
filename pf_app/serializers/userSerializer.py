@@ -15,10 +15,10 @@ class UserSerializer(serializers.ModelSerializer):
     
     def to_representation(self, object):
         user = User.objects.get(id_usuario=object.id_usuario)
-        return {'usuario': user.usuario,
+        return {'username': user.username,
                 'apellido': user.apellido,
                 'nombre': user.nombre,
-                'correo': user.correo,
+                'email': user.email,
                 'telefono': user.telefono,
                 'direccion': user.direccion,
             }
