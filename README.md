@@ -2,11 +2,20 @@
 
 la idea es para no tener que ignorar varios ambientes virtuales de trabajo en el archivo .gitignore, se use el nombre ambiente_1 como ambiente virtual.
 
-Inicialmente, ejecuta en tu maquina el comando python -m venv ambiente_1 y luego ejecuta el siguente comando
+Inicialmente, ejecuta en tu maquina el comando python -m venv ambiente_1
 
+para activar el ambiente_1 con un alias (amb), use esta instruccion en la terminal:
+    doskey amb="ambiente_1\Scripts\activate"
+
+ya solo se necesita escribir amb, para activar el ambiente
+
+ y luego ejecuta el siguente comando:    
 ```
-pip install -r packages.txt
+    pip install -r packages.txt
 ```
+
+luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
+
 
 **Formato de JSON para crear usuario**
 
