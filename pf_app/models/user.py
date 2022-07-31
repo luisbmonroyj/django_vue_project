@@ -8,10 +8,9 @@ class UserManager(BaseUserManager):
             raise ValueError ('Debe escribir un nombre de usuario')
         elif not password:
             raise ValueError ('Debe escribir una contraseña')
+        
         user = self.model(username=username)
-        some_salt = 'qwertyuiop'
-        #self.password = make_password(self.password,some_salt)
-        user.set_password(make_password(self.password,some_salt))
+        user.set_password(password)
         user.save(using=self._db)
         return user
 
