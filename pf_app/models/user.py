@@ -8,9 +8,10 @@ class UserManager(BaseUserManager):
             raise ValueError ('Debe escribir un nombre de usuario')
         elif not password:
             raise ValueError ('Debe escribir una contraseña')
-        
         user = self.model(username=username)
-        user.set_password(password)
+        some_salt = 'qwertyuiop'
+        #self.password = make_password(self.password,some_salt)
+        user.set_password(make_password(self.password,some_salt))
         user.save(using=self._db)
         return user
 
@@ -34,8 +35,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     estado = models.BooleanField('activo',default=True)
 
     def save(self, **kwargs):
-        some_salt = 'qwertyuiop'
-        self.password = make_password(self.password,some_salt)
+        #some_salt = 'qwertyuiop'
+        #self.password = make_password(self.password,some_salt)
         super().save(**kwargs)
 
     objects = UserManager()
