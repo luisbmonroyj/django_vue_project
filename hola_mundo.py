@@ -1,6 +1,7 @@
-##Codigos para saber versiÃ³n de python
+##Codigos para saber versión de python
 
 
 import sys
 
 print(sys.path)
+x = "santiago"

@@ -1,11 +1,63 @@
 **Instalar requerimientos del proyecto.**
 
-Inicialmente, ejecuta en tu maquina el comando python -m venv NOMBRE_DE_TU_ENTORNO y luego ejecuta el siguente comando
+la idea es para no tener que ignorar varios ambientes virtuales de trabajo en el archivo .gitignore, se use el nombre ambiente_1 como ambiente virtual.
 
+Inicialmente, ejecuta en tu maquina el comando python -m venv ambiente_1
+
+para activar el ambiente_1 con un alias (amb), use esta instruccion en la terminal:
+    doskey amb="ambiente_1\Scripts\activate"
+
+ya solo se necesita escribir amb, para activar el ambiente
+
+ y luego ejecuta el siguente comando:    
 ```
-pip install -r requerimientos.txt
+    pip install -r packages.txt
 ```
 
+luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
+
+
+**Formato de JSON para crear usuario**
+
+{"username": "lbmonroyj",
+"password":"123456789",
+"apellido": "Monroy",
+"nombre": "Luis",
+"email": "lbmonroyj@gmail.com",
+"telefono": "31031531925",
+"direccion": "Calle 4 # 85 - 13"
+}
+
+
+{"username": "santiago.mlondono4",
+"password":"123456789",
+"apellido": "Martinez",
+"nombre": "Santiago",
+"email": "santiago.mlonodono4@gmail.com",
+"telefono": "3127492680",
+"direccion": "Calle 4 # 85 - 15"
+}
+
+**Formato de JSON para agregar al carrito**
+
+{
+"id_usuario": 1,
+"productos": 4,
+"cantidad": 8
+}
+
+**Formato de JSON para crear producto**
+
+{"nombre_producto": "papitas_fritas",
+"presentacion":"en caja",
+"precio": "85200.1"
+}
+
+
+para hacer un push a heroku desde una rama se escribe:
+    git push heroku <rama>:main
+
+    
 **Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
 
 When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.

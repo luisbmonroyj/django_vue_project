@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+from pf_app import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('login/',TokenObtainPairView.as_view()),
+    path('createUser/',views.UserCreateView.as_view()),
+    path('user/<int:pk>/',views.UserDataView.as_view()),
+    #buscar por que tipo de dato se reemplaza int
+    path('refresh/',TokenRefreshView.as_view()),
+    path('crear_producto/', views.ProductoCreateView.as_view()),
+    path('cart/', views.CarritoCreateView.as_view())
 ]
