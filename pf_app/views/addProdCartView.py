@@ -13,9 +13,9 @@ class CarritoCreateView(views.APIView):
         print('ACA ACABA EL SERIALIZER')
         carritoData = {
             'id_usuario':request.data['id_usuario'],
-            'id_producto':request.data['id_producto'],
+            'productos':request.data['productos'],
             'cantidad':request.data['cantidad'],
-            'costo':request.data['costo'],
+            #'costo':request.data['costo'],
         }
         print(carritoData)
         
