@@ -1,15 +1,15 @@
 from django.db import models
-from pf_app.models import producto
-from pf_app.models import user
+from pf_app.models import Producto
+from pf_app.models import User
 
 class Carrito(models.Model):
-    #producto = producto.Producto()
     #id_carrito = models.BigAutoField('id_carrito', primary_key= True)
-    id_usuario = models.ForeignKey(user.User, on_delete=models.CASCADE)
-    productos = models.ForeignKey(producto.Producto, on_delete=models.CASCADE)
+    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    #productos = models.ForeignKey(producto.Producto, on_delete=models.CASCADE)
+    productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField('cantidad', default= 1)
-    #costo = producto.precio
-    #valor = costo * cantidad
+    costo = models.FloatField(Producto.precio,default=0)
+    #valor = models.FloatField(costo*cantidad ,default=0)
     """
     def __str__(self):
         diccionario = {

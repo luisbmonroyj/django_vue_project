@@ -42,8 +42,8 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
 {
 "id_usuario": 1,
-"productos": 4,
-"cantidad": 8
+"productos": 3,
+"cantidad": 6
 }
 
 **Formato de JSON para crear producto**
