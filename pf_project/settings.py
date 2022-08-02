@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'pf_app',
-    'corsheaders',
+    #'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    #'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -76,7 +76,6 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'id_usuario',
 }
 
-
 ROOT_URLCONF = 'pf_project.urls'
 
 TEMPLATES = [
@@ -96,7 +95,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pf_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
