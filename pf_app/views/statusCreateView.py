@@ -4,15 +4,14 @@ from pf_app.serializers.statusSerializer import StatusSerializer
 
 class StatusCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
-        serializer = ProductoSerializer(data = request.data)
+        serializer = StatusSerializer(data = request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
-        productoData = {
-            'nombre_producto':request.data['nombre_producto'],
-            'presentacion':request.data['presentacion'],
-            'precio':request.data['precio'],
+        statusData = {
+            #'id_status':request.data['id_status'],
+            'descripcion':request.data['descripcion'],
         }
         
-        return Response(productoData, status = status.HTTP_201_CREATED)
+        return Response(statusData, status = status.HTTP_201_CREATED)
     
