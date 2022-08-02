@@ -3,28 +3,15 @@ from pf_app.models import Producto
 from pf_app.models import User
 
 class Carrito(models.Model):
+    id_carrito = models.BigAutoField('id_carrito', primary_key= True)
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField('cantidad', default= 1)
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    #id_carrito = models.BigAutoField('id_carrito', primary_key= True)
-    
-    #productos = models.ForeignKey(producto.Producto, on_delete=models.CASCADE)
-    #costo = Producto.objects.all().annotate()
-    #costo = models.FloatField(Producto.precio,default=8)
-#    valor = costo.float
+    costo = models.FloatField('costo',default=0)
+    pedido = models.IntegerField('pedido', default= None)
+    #la mejor idea hasta el momento es llenar costo con 0 y luego editar el campo
+    #con la operacion cantidad * Producto.precio
+    #valor = models.FloatField(costo*cantidad ,default=0)
     """
     def __str__(self):
         diccionario = {
