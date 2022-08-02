@@ -19,11 +19,12 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 from pf_app import views
 
 urlpatterns = [
-    path('login/',TokenObtainPairView.as_view()),
-    path('createUser/',views.UserCreateView.as_view()),
-    path('user/<int:pk>/',views.UserDataView.as_view()),
     #buscar por que tipo de dato se reemplaza int
+    path('user/<int:pk>/',views.UserDataView.as_view()),
+    path('createUser/',views.UserCreateView.as_view()),
+    path('producto/', views.ProductoCreateView.as_view()),
     path('refresh/',TokenRefreshView.as_view()),
-    path('crear_producto/', views.ProductoCreateView.as_view()),
-    path('cart/', views.CarritoCreateView.as_view())
+    path('status/',views.StatusCreateView.as_view()),
+    path('login/',TokenObtainPairView.as_view()),
+    path('cart/', views.CarritoCreateView.as_view()),
 ]

@@ -41,26 +41,43 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 **Formato de JSON para crear producto**
 
 {"nombre_producto": "papitas_fritas",
-"presentacion":"en bolse",
-"precio": "85000.1"
+"presentacion":"1kg en bolsa",
+"precio": "5400.15"
 }
 
 {"nombre_producto": "papitas_francesa",
-"presentacion":"en caja",
-"precio": "33200.1"
+"presentacion":"1kg en caja",
+"precio": "8200.40"
 }
 
 {"nombre_producto": "Yucas_fritas",
-"presentacion":"en bolsa",
-"precio": "45200.1"
+"presentacion":"1kg en bolsa",
+"precio": "4500.83"
 }
 
 {"nombre_producto": "papitas_criollas",
-"presentacion":"tetrapack",
-"precio": "76300.1"
+"presentacion":"1kg al vacio",
+"precio": "6300.28"
 }
 
+**Formato de JSON para crear los estados**
+{"descripcion": "pagado"
+}
 
+{"descripcion": "preparado"
+}
+
+{"descripcion": "congelado"
+}
+
+{"descripcion": "empacado"
+}
+
+{"descripcion": "enviado"
+}
+
+{"descripcion": "recibido"
+}
 
 **Formato de JSON para agregar al carrito**
 
