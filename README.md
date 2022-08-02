@@ -40,6 +40,7 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
 **Formato de JSON para agregar al carrito**
 
+Tiene que estar autenticado para poder acceder a las llaves de producto y usuario
 {
 "id_usuario": 1,
 "productos": 3,
@@ -49,10 +50,24 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 **Formato de JSON para crear producto**
 
 {"nombre_producto": "papitas_fritas",
-"presentacion":"en caja",
-"precio": "85200.1"
+"presentacion":"en bolse",
+"precio": "85000.1"
 }
 
+{"nombre_producto": "papitas_francesa",
+"presentacion":"en caja",
+"precio": "33200.1"
+}
+
+{"nombre_producto": "Yucas_fritas",
+"presentacion":"en bolsa",
+"precio": "45200.1"
+}
+
+{"nombre_producto": "papitas_criollas",
+"presentacion":"tetrapack",
+"precio": "76300.1"
+}
 
 para hacer un push a heroku desde una rama se escribe:
     git push heroku <rama>:main
