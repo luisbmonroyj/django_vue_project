@@ -7,8 +7,11 @@ class Carrito(models.Model):
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField('cantidad', default= 1)
-    costo = models.FloatField('costo',default=0)
-    pedido = models.IntegerField('pedido', default= None)
+    #costo = models.FloatField('costo',default=0)
+    #pedido = models.IntegerField('pedido', default= None)
+    
+    
+    
     #la mejor idea hasta el momento es llenar costo con 0 y luego editar el campo
     #con la operacion cantidad * Producto.precio
     #valor = models.FloatField(costo*cantidad ,default=0)
