@@ -20,8 +20,8 @@ class CarritoSerializer(serializers.ModelSerializer):
         usuario = User()
         Producto.objects.get(id_producto=1).carrito_se.all()
         Producto.objects.all().filter(carrito__id_usuario=1)
-        carrito.objects.create(id_usuario=1,cantidad=5
-        productos=Producto.objects.get(id_producto=1))
+        carrito.objects.create(id_usuario=1,cantidad=5)
+        productos=Producto.objects.get(id_producto=1)
         Carrito.objects.filter(producto__id_producto=1)
         return {
             'id_usuario': usuario.id_usuario,
