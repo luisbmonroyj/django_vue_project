@@ -2,4 +2,5 @@
 from .userDataView import UserDataView
 from .userCreateView import UserCreateView
 from .productoCreateView import ProductoCreateView
-from .addProdCartView import CarritoCreateView
+from .cartView import CarritoCreateView
+from .statusCreateView import StatusCreateView

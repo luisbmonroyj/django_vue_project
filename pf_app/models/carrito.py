@@ -1,16 +1,15 @@
 from django.db import models
 from pf_app.models import Producto
 from pf_app.models import User
-
+from pf_app.models import pedido 
+ 
 class Carrito(models.Model):
-    id_carrito = models.BigAutoField('id_carrito', primary_key= True)
+    id_carrito = models.BigAutoField('id', primary_key= True)
     id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     productos = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField('cantidad', default= 1)
-    #costo = models.FloatField('costo',default=0)
-    #pedido = models.IntegerField('pedido', default= None)
-    
-    
+    costo = models.FloatField('costo',default=0)
+    id_pedido = models.ForeignKey(pedido.Pedido, default= None, on_delete=models.CASCADE)
     
     #la mejor idea hasta el momento es llenar costo con 0 y luego editar el campo
     #con la operacion cantidad * Producto.precio
