@@ -17,8 +17,9 @@ class CarritoCreateView(views.APIView):
             'id_usuario':request.data['id_usuario'],
             'productos_usuario':{'productos':request.data['productos'],'cantidad':request.data['cantidad'],}
             #'costo':request.data['costo'],
+        
         }
-        #{productos_usuario:{'1':'4','3':'6'}
+        
         # id_usuario:1
         #} necesito sacar el diccionario del sefgundo elemento del diccionario 
         
@@ -53,7 +54,7 @@ class CarritoCreateView(views.APIView):
             'costo':costos
         }
         
-        return Response(status = status.HTTP_201_CREATED)
+        return Response(carritoData,status = status.HTTP_201_CREATED)
 
         for i in range (len(productos)):
             costo = 0

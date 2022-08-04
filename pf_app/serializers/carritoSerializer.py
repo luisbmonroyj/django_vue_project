@@ -23,7 +23,7 @@ class CarritoSerializer(serializers.ModelSerializer):
         #productos=Producto.objects.get(id_producto=1))
         carrito = Carrito()
         Carrito.objects.filter(producto__id_producto=1)
-        productos_json = carrito.
+        productos_json = carrito
         return {
             'id_usuario': carrito.id_usuario,
             'productos_usuario': carrito.productos,

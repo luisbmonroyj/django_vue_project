@@ -89,6 +89,10 @@ REEVALUAR ESTO, NO VA A SER ASI
 "cantidad": 6
 }
 
+{
+"id_usuario": 1,
+'productos_usuario':{'1':'4','3':'6'}
+}
 
 para hacer un push a heroku desde una rama se escribe:
     git push heroku <rama>:main
