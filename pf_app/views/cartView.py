@@ -60,10 +60,3 @@ class CarritoCreateView(views.APIView):
             productoDB = request.filter(id_producto=productos[i]).first
             costo = productoDB.precio * request.Productos_Usuarios.get(productos[i])	
             carrito.save	(request.id_usuario,id_producto,cantidad,costo,pedidoCompleto.id)
-
-    #def save(request.id_usuario,id_producto,cantidad,costo):
-
-                #print(carritoData)
-                
-     #           return Response(carritoData, status = status.HTTP_201_CREATED)
-    
