@@ -1,5 +1,6 @@
 from rest_framework import status,views
 from rest_framework.response import Response
+from pf_app.models.carrito import Carrito
 from pf_app.serializers.pedidoSerializer import PedidoSerializer
 from pf_app.serializers.carritoSerializer import CarritoSerializer
 from pf_app.serializers.productoSerializer import ProductoSerializer
@@ -17,9 +18,23 @@ class CarritoCreateView(views.APIView):
             'id_usuario':request.data['id_usuario'],
             'productos_usuario':{'productos':request.data['productos'],'cantidad':request.data['cantidad'],}
             #'costo':request.data['costo'],
+            }
         
-        }
+#carritoData = {'id_usuario':1,
+#'productos_usuario':{'1': 4, '2': 8, '3': 12, '4': 16}
+#}
+
+        lista = carritoData['productos_usuario']
+        cantidades = list(lista.values())
+        productos_diccionario = list(lista.keys())
+        entrada = carritoData['id_usuario']
+
         
+        for i in productos_diccionario:
+            texto = '{\n' + f'"id_usuario":{entrada}, \n"productos_usuario": {productos_diccionario[int(i)-1]}, \n"cantidad": {cantidades[int(i)-1]}' + '\n}'
+            serializer.create(texto)        
+
+
         # id_usuario:1
         #} necesito sacar el diccionario del sefgundo elemento del diccionario 
         
