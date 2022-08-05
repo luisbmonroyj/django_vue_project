@@ -81,18 +81,12 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
 **Formato de JSON para agregar al carrito**
 
-Tiene que estar autenticado para poder acceder a las llaves de producto y usuario
-REEVALUAR ESTO, NO VA A SER ASI
 {
 "id_usuario": 1,
 "productos": 3,
 "cantidad": 6
 }
 
-{
-"id_usuario": 1,
-'productos_usuario':{'1':'4','3':'6'}
-}
 
 para hacer un push a heroku desde una rama se escribe:
     git push heroku <rama>:main

@@ -3,17 +3,23 @@ from rest_framework.response import Response
 #from pf_app.models.carrito import Carrito
 from pf_app.serializers.pedidoSerializer import PedidoSerializer
 from pf_app.serializers.carritoSerializer import CarritoSerializer
-#from pf_app.serializers.productoSerializer import ProductoSerializer
+from pf_app.serializers.productoSerializer import ProductoSerializer
+from pf_app.serializers.userSerializer import UserSerializer
 
-class CarritoCreateView(views.APIView):
-    def post(self, request, *args, **kwargs):
-        serializer = CarritoSerializer(data = request.data) #llama al metodo create de carritoSerializer
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        
+
+class PedidoView(views.APIView):
+    def post(self, userRequest, productRequest,*args, **kwargs):
+        #necesito obtener el dato del id_usuario que tiene la sesion iniciada, NECESITO LEER EL TOKEN?
+        userSerializer = UserSerializer(userData = userRequest.data) #llama al metodo create userSerializer
+        userSerializer.is_valid(raise_exception=True)
+        #userSerializer.save()
+        #necesito obtener el dato del producto
+        productSerializer = ProductoSerializer(productData = productRequest.Data)
+        productSerializer.is_valid(raise_exception=True)
+
         carritoData = {
-            'id_usuario':request.data['id_usuario'],
-            'productos_usuario':{'productos':request.data['productos'],'cantidad':request.data['cantidad'],}
+            'id_usuario':userRequest.data['id_usuario'],
+            'productos_usuario':{'productos':productRequest.data['productos'],'cantidad':request.data['cantidad'],}
             #'costo':request.data['costo'],
             }
             #un ejemplo de carrito es asi
@@ -45,29 +51,11 @@ class CarritoCreateView(views.APIView):
             costos[i] = costo
             total += costo   #### Acá se obtiene el total TOTAL
         
-        diccionario_entrega = {
+        pedidoData = {
             'total':total,
             'id_usuario':request.id_usuario            
         }
         #en esta linea deberia crearse un pedido en la tabla PEDIDO para poder agregar su id a los datos que van a la tabla carrito
-        pedidoCompleto=PedidoSerializer.create(diccionario_entrega)
+        return Response(pedidoData, status = status.HTTP_201_CREATED)
 
-        # for i in productos_diccionario:
-        #     texto = '{\n' + f'"id_usuario":{userid}, \n"productos_usuario": {productos_diccionario[int(i)-1]}, \n"cantidad": {cantidades[int(i)-1]}' + '\n}'
-        #     serializer.create(texto)        
-
-        for i in productos_diccionario: #productos_diccionario son las llaves de lista, y lista es el diccionario {id_producto:cantidad}
-            y = {
-                'id_pedido':pedidoCompleto.id_pedido,
-                'id_usuario':pedidoCompleto.id_usuario,
-                'productos': productos_diccionario[i],
-                'cantidad':cantidades[i],
-                'costo':costos[i]
-            }
-            return Response(y,status = status.HTTP_201_CREATED)
-
-        for i in range (len(productos)):
-            costo = 0
-            productoDB = request.filter(id_producto=productos[i]).first
-            costo = productoDB.precio * request.Productos_Usuarios.get(productos[i])	
-            carrito.save	(request.id_usuario,id_producto,cantidad,costo,pedidoCompleto.id)
+        

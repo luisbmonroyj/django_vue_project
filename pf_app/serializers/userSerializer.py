@@ -1,6 +1,6 @@
 from pf_app.models.user import User
 from rest_framework import serializers
-from pf_app.serializers.userData import UserData
+#from pf_app.serializers.userData import UserData
 
 class UserSerializer(serializers.ModelSerializer):
     #userData = UserData()
