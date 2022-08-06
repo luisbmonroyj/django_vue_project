@@ -13,9 +13,11 @@ class Producto(models.Model):
 class Articulo(models.Model):
     id_articulo = models.BigAutoField('id_producto', primary_key= True)
     cantidad = models.IntegerField('cantidad',default=0)
-    id_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,unique=True)
-    p = Producto.objects.get(pk=id_producto.value_to_string)
-    costo = p.precio * cantidad
+    #id_producto = models.ForeignKey(Producto,on_delete=models.CASCADE,unique=True)
+    #id_producto = models.ForeignKey(Producto,on_delete=models.CASCADE)
+    id_producto = models.OneToOneField(Producto,on_delete=models.CASCADE)
+    #p = Producto.objects.get(pk=id_producto.value_to_string)
+    #costo = models.FloatField('costo',default=p.precio * cantidad)
     
 
     #def __str__(self):
