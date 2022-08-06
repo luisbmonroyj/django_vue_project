@@ -1,1 +1,0 @@
-web: gunicorn pf_project.wsgi
