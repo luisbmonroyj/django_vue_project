@@ -16,6 +16,19 @@ ya solo se necesita escribir amb, para activar el ambiente
 
 luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
+**Forma de probar con el shell**
+
+python manage.py shell
+import django 
+django.setup()
+from pf_app.models.Modelo import Clases
+para importar los modelos que se van a probar
+Modelo.objects.all()
+deberia arrojar los datos que hay guardados en la DB
+
+registro1 =  Clase(campo1 = valor1, campo2 = valor2 ...)
+registro1.save()
+
 
 **Formato de JSON para crear usuario**
 
@@ -81,18 +94,12 @@ luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
 **Formato de JSON para agregar al carrito**
 
-Tiene que estar autenticado para poder acceder a las llaves de producto y usuario
-REEVALUAR ESTO, NO VA A SER ASI
 {
 "id_usuario": 1,
 "productos": 3,
 "cantidad": 6
 }
 
-{
-"id_usuario": 1,
-'productos_usuario':{'1':'4','3':'6'}
-}
 
 para hacer un push a heroku desde una rama se escribe:
     git push heroku <rama>:main
