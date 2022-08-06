@@ -16,6 +16,19 @@ ya solo se necesita escribir amb, para activar el ambiente
 
 luego de instalado, ignorar este archivo para el desplieGe de la aplicacion
 
+**Forma de probar con el shell**
+
+python manage.py shell
+import django 
+django.setup()
+from pf_app.models.Modelo import Clases
+para importar los modelos que se van a probar
+Modelo.objects.all()
+deberia arrojar los datos que hay guardados en la DB
+
+registro1 =  Clase(campo1 = valor1, campo2 = valor2 ...)
+registro1.save()
+
 
 **Formato de JSON para crear usuario**
 
