@@ -1,5 +1,3 @@
-from posixpath import split
-from tkinter import CENTER
 from rest_framework import status,views
 from rest_framework.response import Response
 #from pf_app.models.carrito import Carrito
@@ -50,9 +48,9 @@ class CarritoCreateView(views.APIView):
             
             for z, l in i.items():
                 productoDB = productosDB.get(pk=int(z))
-                print('Printiando Z'.center(50, '*'))
-                print(type(z))
-                print('Printiando Z'.center(50, '*'))
+                # print('Printiando Z'.center(50, '*'))
+                # print(type(z))
+                # print('Printiando Z'.center(50, '*'))
                 # carritoData = {
                 #     'id_pedido':pedidoCompleto.id_pedido,
                 #     'productos': z,
