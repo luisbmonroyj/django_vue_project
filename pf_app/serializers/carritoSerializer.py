@@ -8,17 +8,19 @@ class CarritoSerializer(serializers.ModelSerializer):
         model = Carrito
         fields = '__all__'
         #['id_carrito','id_usuario','productos','cantidad','costo','id_pedido']
-
+    
     def create(self,validated_data):
         carritoInstance = Carrito.objects.create(**validated_data)
         return carritoInstance
     #Tiene que crearse primero un pedido y enviarle el id_pedido como argumento dentro de object
     def to_representation(self, object):
-        cart = Carrito.object.get(id_usuario=object.id_usuario,id_pedido=object.id_pedido)
+        cart = Carrito.objects.get(id_pedido=object.id_pedido)
         return {
-            'id_usuario': cart.id_usuario,
+            #'id_usuario': cart.id_usuario,
+            'id_pedido': cart.id_pedido,
             'productos': cart.productos,
             'cantidad': cart.cantidad,
+            'costo': cart.costo
             }
                 #podriamos usar Carrito.id_usuario? Porque ese dato esta guardado en el META de carrito
                 #podriamos usar el diccionario que estamos usando en Pedido? el que relaciona id_producto:cantidad?

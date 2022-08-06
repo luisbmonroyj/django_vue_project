@@ -1,3 +1,5 @@
+### Ya es funcional
+
 from django.db import models
 
 class Status(models.Model):

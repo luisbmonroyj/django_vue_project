@@ -1,61 +1,61 @@
-from rest_framework import status,views
-from rest_framework.response import Response
-#from pf_app.models.carrito import Carrito
-from pf_app.serializers.pedidoSerializer import PedidoSerializer
-from pf_app.serializers.carritoSerializer import CarritoSerializer
-from pf_app.serializers.productoSerializer import ProductoSerializer
-from pf_app.serializers.userSerializer import UserSerializer
+# from rest_framework import status,views
+# from rest_framework.response import Response
+# #from pf_app.models.carrito import Carrito
+# from pf_app.serializers.pedidoSerializer import PedidoSerializer
+# from pf_app.serializers.carritoSerializer import CarritoSerializer
+# from pf_app.serializers.productoSerializer import ProductoSerializer
+# from pf_app.serializers.userSerializer import UserSerializer
 
 
-class PedidoView(views.APIView):
-    def post(self, userRequest, productRequest,*args, **kwargs):
-        #necesito obtener el dato del id_usuario que tiene la sesion iniciada, NECESITO LEER EL TOKEN?
-        userSerializer = UserSerializer(userData = userRequest.data) #llama al metodo create userSerializer
-        userSerializer.is_valid(raise_exception=True)
-        #userSerializer.save()
-        #necesito obtener el dato del producto
-        productSerializer = ProductoSerializer(productData = productRequest.Data)
-        productSerializer.is_valid(raise_exception=True)
+# class PedidoView(views.APIView):
+#     def post(self, userRequest, productRequest,*args, **kwargs):
+#         #necesito obtener el dato del id_usuario que tiene la sesion iniciada, NECESITO LEER EL TOKEN?
+#         userSerializer = UserSerializer(userData = userRequest.data) #llama al metodo create userSerializer
+#         userSerializer.is_valid(raise_exception=True)
+#         #userSerializer.save()
+#         #necesito obtener el dato del producto
+#         productSerializer = ProductoSerializer(productData = productRequest.Data)
+#         productSerializer.is_valid(raise_exception=True)
 
-        carritoData = {
-            'id_usuario':userRequest.data['id_usuario'],
-            'productos_usuario':{'productos':productRequest.data['productos'],'cantidad':request.data['cantidad'],}
-            #'costo':request.data['costo'],
-            }
-            #un ejemplo de carrito es asi
-            #carritoData = {'id_usuario':1,
-            #'productos_usuario':{'1': 4, '2': 8, '3': 12, '4': 16}
-            #}
+#         carritoData = {
+#             'id_usuario':userRequest.data['id_usuario'],
+#             'productos_usuario':{'productos':productRequest.data['productos'],'cantidad':request.data['cantidad'],}
+#             #'costo':request.data['costo'],
+#             }
+#             #un ejemplo de carrito es asi
+#             #carritoData = {'id_usuario':1,
+#             #'productos_usuario':{'1': 4, '2': 8, '3': 12, '4': 16}
+#             #}
 
-        #posiblemente no lo necesite
-        userid = carritoData['id_usuario']
-        #lista debe tener las llaves y los valores del segundo elemento de del diccionario carritoData
-        lista = carritoData['productos_usuario']#segun el ejemplo, esta linea es
-        #{'1': 4, '2': 8, '3': 12, '4': 16}
-        cantidades = list(lista.values())#segun el ejemplo, esta linea es
-        #[4,8,12,16]
-        productos_diccionario = list(lista.keys())#segun el ejemplo, esta linea es
-        #['1','2','3','4'] que son los id_producto que escogio el cliente
-        #NECESITO UNA LISTA QUE ME TRAIGA LOS PRECIOS DE LA TABLA PRODUCTO
-        #para calcular el costo(=cantidad*Producto.precio) y sumarlos para hallar total
-        #lista = carritoData['productos_usuario'] 
-        total = 0
-        cantidades = lista.values()
-        productos_diccionario = lista.keys()
-        #bota una clase diccionario
-        costos = {}
-        for i in productos_diccionario:
-            costo = 0
-            productoDB = request.filter(id_producto=productos_diccionario[i]).first
-            costo = productoDB.precio * request.lista(cantidades[i])
-            costos[i] = costo
-            total += costo   #### Acá se obtiene el total TOTAL
+#         #posiblemente no lo necesite
+#         userid = carritoData['id_usuario']
+#         #lista debe tener las llaves y los valores del segundo elemento de del diccionario carritoData
+#         lista = carritoData['productos_usuario']#segun el ejemplo, esta linea es
+#         #{'1': 4, '2': 8, '3': 12, '4': 16}
+#         cantidades = list(lista.values())#segun el ejemplo, esta linea es
+#         #[4,8,12,16]
+#         productos_diccionario = list(lista.keys())#segun el ejemplo, esta linea es
+#         #['1','2','3','4'] que son los id_producto que escogio el cliente
+#         #NECESITO UNA LISTA QUE ME TRAIGA LOS PRECIOS DE LA TABLA PRODUCTO
+#         #para calcular el costo(=cantidad*Producto.precio) y sumarlos para hallar total
+#         #lista = carritoData['productos_usuario'] 
+#         total = 0
+#         cantidades = lista.values()
+#         productos_diccionario = lista.keys()
+#         #bota una clase diccionario
+#         costos = {}
+#         for i in productos_diccionario:
+#             costo = 0
+#             productoDB = request.filter(id_producto=productos_diccionario[i]).first
+#             costo = productoDB.precio * request.lista(cantidades[i])
+#             costos[i] = costo
+#             total += costo   #### Acá se obtiene el total TOTAL
         
-        pedidoData = {
-            'total':total,
-            'id_usuario':request.id_usuario            
-        }
-        #en esta linea deberia crearse un pedido en la tabla PEDIDO para poder agregar su id a los datos que van a la tabla carrito
-        return Response(pedidoData, status = status.HTTP_201_CREATED)
+#         pedidoData = {
+#             'total':total,
+#             'id_usuario':request.id_usuario            
+#         }
+#         #en esta linea deberia crearse un pedido en la tabla PEDIDO para poder agregar su id a los datos que van a la tabla carrito
+#         return Response(pedidoData, status = status.HTTP_201_CREATED)
 
         

@@ -8,7 +8,7 @@ class ProductoSerializer(serializers.ModelSerializer):
         model = Producto
         fields = '__all__'
         #['id_usuario','password','apellido','nombre','telefono','direccion','estado']
-
+    
     def create(self,validated_data):
         productoInstance = Producto.objects.create(**validated_data)
         return productoInstance

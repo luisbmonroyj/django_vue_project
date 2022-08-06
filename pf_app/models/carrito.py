@@ -5,7 +5,7 @@ from pf_app.models import pedido
  
 class Carrito(models.Model):
     id_carrito = models.BigAutoField('id', primary_key= True)
-    id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    #id_usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     productos = models.ForeignKey(Producto, on_delete=models.CASCADE) 
     ## Diccionario
     cantidad = models.IntegerField('cantidad', default= 1)
