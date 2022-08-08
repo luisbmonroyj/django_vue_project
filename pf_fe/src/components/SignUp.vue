@@ -5,15 +5,19 @@
             <h2>Registrarse</h2>
 
             <form v-on:submit.prevent="processSignUp" >
-                <input type="text" v-model="user.username" placeholder="Username">
+                <input type="text" v-model="user.username" placeholder="Usuario">
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password">
+                <input type="password" v-model="user.password" placeholder="Contraseña">
                 <br>
-                <input type="text" v-model="user.name" placeholder="Name">
+                <input type="text" v-model="user.nombre" placeholder="Nombre">
                 <br>
-                <input type="email" v-model="user.email" placeholder="Email">
+                <input type="text" v-model="user.apellido" placeholder="Apellido">
                 <br>
-                <input type="number" vmodel="user.account.balance" placeholder="Initial Balance">
+                <input type="email" v-model="user.email" placeholder="Correo electronico">
+                <br>
+                <input type="text" v-model="user.direccion" placeholder="Dirección">
+                <br>
+                <input type="text" v-model="user.telefono" placeholder="Teléfono">
                 <br>
                 <button type="submit">Registrarse</button>
             </form>
@@ -32,13 +36,11 @@ export default {
             user: {
                 username: "",
                 password: "",
-                name: "",
+                apellido: "",
+                nombre: "",
                 email: "",
-                account: {
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance: 0,
-                    isActive: true
-                }
+                telefono: "", 
+                direccion: "",                               
             }
         }
     },
@@ -46,7 +48,7 @@ export default {
     methods: {
         processSignUp: function(){
             axios.post(
-                "https://papas-fersan-api.herokuapp.com/CreateUser/",
+                "https://papas-fersan-api.herokuapp.com/createUser/",
                 this.user,
                 {headers: {}}
             )

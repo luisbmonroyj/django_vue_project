@@ -3,6 +3,8 @@ import App from './App.vue';
 
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
+import Home from './components/Home.vue'
+import Productos from './components/Productos.vue'
 
 const routes = [{
     path: '/',
@@ -18,7 +20,18 @@ const routes = [{
     path: '/user/signUp',
     name: "signUp",
     component: SignUp
+  },
+  {
+    path: '/user/home',
+    name: "home",
+    component: Home
+  },
+  {
+    path: '/user/productos',
+    name: "productos",
+    component: Productos
   }
+
 ];
 const router = createRouter({
   history: createWebHistory(),

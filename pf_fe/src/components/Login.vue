@@ -34,7 +34,7 @@ export default {
     methods: {
         processLogInUser: function(){
             axios.post(
-                "https://papas-fersan-api.herokuapp.com/login/",
+                "http://127.0.0.1:8000/login/",
                 this.user,
                 {headers: {}}
                 ).
@@ -111,5 +111,5 @@ export default {
         background: crimson;
         border: 1px solid #283747;
     }
-    
+
 </style>
