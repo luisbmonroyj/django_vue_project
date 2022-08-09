@@ -28,7 +28,7 @@ DEBUG = True
 
 #CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8080']
 #se agrage l dominio de heroku donde esta la api
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pf-app-api.herokuapp.com']
 CORS_ALLOWED_ALL_ORIGINS = True
 
 # Application definition
