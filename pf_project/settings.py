@@ -29,9 +29,9 @@ DEBUG = True
 #CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8000']
 #se agrage l dominio de heroku donde esta la api
 
-CORS_ALLOWED_ALL_ORIGINS = True
-
 ALLOWED_HOSTS = []
+
+CORS_ALLOWED_ALL_ORIGINS = True
 
 # Application definition
 
@@ -152,5 +152,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#import django_heroku
-#django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
