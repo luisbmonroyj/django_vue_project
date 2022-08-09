@@ -1,6 +1,6 @@
 from pf_app.models.producto import Producto
 from rest_framework import serializers
-from pf_app.serializers.userData import UserData
+
 
 class ProductoSerializer(serializers.ModelSerializer):
     #userData = UserData()
@@ -15,7 +15,8 @@ class ProductoSerializer(serializers.ModelSerializer):
     
     def to_representation(self, object):
         producto = Producto.objects.get(id_producto=object.id_producto)
-        return {'id_producto': producto.id_producto,
+        return {
+                #'id_producto': producto.id_producto,
                 'nombre_producto': producto.nombre_producto,
                 'presentacion': producto.presentacion,
                 'precio': producto.precio,
