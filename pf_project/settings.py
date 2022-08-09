@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-)ja7jpizn$&0(@)6gb)2!m7325p4^5s_$#5!shdd!hhfnk)ji9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8000']
+CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8080']
 #se agrage l dominio de heroku donde esta la api
 
 ALLOWED_HOSTS = []
