@@ -28,7 +28,7 @@ DEBUG = True
 
 #CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8080']
 #se agrage l dominio de heroku donde esta la api
-ALLOWED_HOSTS = ['pf-app-api.herokuapp.com']
+ALLOWED_HOSTS = ['pf-app-api.herokuapp.com','127.0.0.1:8000']
 CORS_ALLOWED_ALL_ORIGINS = True
 
 # Application definition
@@ -104,11 +104,9 @@ DATABASES = {
     'USER': 'hnmjjhzyrwzdgl',
     'PASSWORD': 'e6b2dca5306be274761248763957f83c8fd7bc826c8fb69dc01bdb00b4905651',
     'HOST': 'ec2-54-152-28-9.compute-1.amazonaws.com',
-
     'PORT': '5432',
 }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -128,7 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -140,7 +137,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -150,7 +146,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 #import django_heroku
 #django_heroku.settings(locals())
