@@ -26,11 +26,9 @@ SECRET_KEY = 'django-insecure-)ja7jpizn$&0(@)6gb)2!m7325p4^5s_$#5!shdd!hhfnk)ji9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8080']
+#CORS_ALLOWED_ORIGINS = ['https://ejemplo1.html','https://localhost:8080']
 #se agrage l dominio de heroku donde esta la api
-
 ALLOWED_HOSTS = []
-
 CORS_ALLOWED_ALL_ORIGINS = True
 
 # Application definition
@@ -106,6 +104,7 @@ DATABASES = {
     'USER': 'hnmjjhzyrwzdgl',
     'PASSWORD': 'e6b2dca5306be274761248763957f83c8fd7bc826c8fb69dc01bdb00b4905651',
     'HOST': 'ec2-54-152-28-9.compute-1.amazonaws.com',
+
     'PORT': '5432',
 }
 }
@@ -152,5 +151,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import django_heroku
-django_heroku.settings(locals())
+
+#import django_heroku
+#django_heroku.settings(locals())
