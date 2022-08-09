@@ -5,8 +5,9 @@
 
       <h1>Papas fersan</h1>
       <nav>
+
         <button v-if="is_auth" v-on:click="loadHome"> Inicio </button>
-        <button v-if="is_auth" v-on:click="loadProductos"> Productos </button>
+        <button v-if="!is_auth" v-on:click="loadProductos"> Productos </button>
         <button v-if="is_auth" v-on:click="logOut"> Cerrar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadLogIn" > Iniciar Sesión </button>
         <button v-if="!is_auth" v-on:click="loadSignUp" > Registrarse </button>
@@ -86,7 +87,8 @@ export default {
     },
 
     loadProductos: function () {
-      this.$router.push({ name: "productos" });
+      //alert("tratando de entrar a producto");
+      this.$router.push({ name: "Productos" });
     },
 
   },

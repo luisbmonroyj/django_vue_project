@@ -23,6 +23,7 @@ urlpatterns = [
     path('user/<int:pk>/',views.UserDataView.as_view()),
     path('createUser/',views.UserCreateView.as_view()),
     path('producto/', views.ProductoCreateView.as_view()),
+    path('producto/<int:pk>/',views.ProductoDataView.as_view()),
     path('refresh/',TokenRefreshView.as_view()),
     path('status/',views.StatusCreateView.as_view()),
     path('login/',TokenObtainPairView.as_view()),

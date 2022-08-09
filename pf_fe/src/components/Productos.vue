@@ -1,12 +1,23 @@
 <template>
-
+    <div>
+    
+    <h2>Buscar producto</h2>
+    
+        <form v-on:submit.prevent="consultaProducto" >
+            <input type="text" v-model="producto_id" placeholder="producto_id">
+            <br>
+            <button type="submit">Buscar producto</button>
+        </form>
+    
+    </div>
+    
     <div v-if="loaded" class="information">
         <h1>Productos</h1>
-        <h2>Nombre: <span>{{name}}</span></h2>
-        <h2>Dirección: <span>{{balance}} COP </span></h2>
-        <h2>Correo electrónico: <span>{{email}}</span></h2>
+        <h2>Nombre: <span></span></h2>
+        <h2>Presentacion: <span></span></h2>
+        <h2>Precio: <span></span></h2>
     </div>
-
+    
 </template>
 
 <script>
@@ -15,53 +26,41 @@ import jwt_decode from "jwt-decode";
 import axios from 'axios';
 
 export default {
-    name: "Account",
+    name: "Productos",
     
     data: function(){
         return {
-            name: "",
-            email: "",
-            balance: 0,
+            nombre_producto: "",
+            presentacion: "",
+            precio: 0,
             loaded: false,
         }
     },
 
     methods: {
-        getData: async function () {
+        consultaProducto:function(){
+            this.getData(producto_id)
+            return
+        },
+        getData: function (producto_id) {
             
-            if (localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null) {
-                this.$emit('logOut');
-                return;
-            }
-
-            await this.verifyToken();
-            let token = localStorage.getItem("token_access");
-            let userId = jwt_decode(token).user_id.toString();
-
-            axios.get(`https://papas-fersan-api.herokuapp.com/user/${userId}/`, {headers: {'Authorization': `Bearer ${token}`}})
+                axios.get(`https://papas-fersan-api.herokuapp.com/producto/${producto_id}/`, {headers:{}})
+         
                 .then((result) => {
-                    this.name = result.data.name;
-                    this.email = result.data.email;
-                    this.balance = result.data.account.balance;
+                    this.nombre_producto = result.data.nompre_producto;
+                    this.presentacion = result.data.presentacion;
+                    this.precio = result.data.precio;
                     this.loaded = true;
                     })
                 .catch(() => {
-                    this.$emit('logOut');
+               
+                 alert("No se encuentra producto")
                 });
         },
-
-        verifyToken: function () {
-            return axios.post("https://papas-fersan-api.herokuapp.com/refresh/", {refresh: localStorage.getItem("token_refresh")}, {headers: {}}
-)
-                .then((result) => {
-                    localStorage.setItem("token_access", result.data.access);
-                })
-                .catch(() => {
-                    this.$emit('logOut');
-                });
-        }
+       
     },
-    created: async function(){
+    
+    created: function(){
         this.getData();
     },
 }
